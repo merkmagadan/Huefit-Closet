@@ -4,7 +4,7 @@ A front-end prototype for an outfit recommendation app where users can photograp
 
 ## Run
 
-Open [index.html](/Users/mercedes/Documents/New project/index.html) in a browser.
+Open (https://merkmagadan.github.io/Huefit-Closet/) in a browser.
 
 ## What This Prototype Includes
 

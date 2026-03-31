@@ -1,0 +1,25 @@
+{
+  "name": "HueFit Closet",
+  "short_name": "HueFit",
+  "description": "Photo-first outfit planning app for building looks from clothes you already own.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fff4df",
+  "theme_color": "#ef7a4f",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title>HueFit Closet Icon</title>
+  <desc>Rounded app icon with a hanger and colorful outfit blocks.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff2dd" />
+      <stop offset="48%" stop-color="#f8efff" />
+      <stop offset="100%" stop-color="#e7fbf3" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#bg)" />
+  <rect x="86" y="286" width="340" height="74" rx="37" fill="#ffffff" opacity="0.84" />
+  <rect x="112" y="246" width="112" height="122" rx="44" fill="#ef7a4f" opacity="0.94" />
+  <rect x="202" y="204" width="120" height="164" rx="52" fill="#78c1d6" opacity="0.88" />
+  <rect x="304" y="256" width="96" height="112" rx="44" fill="#247a72" opacity="0.85" />
+  <path
+    d="M190 166c0-35.346 28.654-64 64-64 29.455 0 54 24.545 54 54 0 18.778-15.222 34-34 34h-34"
+    fill="none"
+    stroke="#172033"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="28"
+  />
+  <path
+    d="M160 228l96-54 96 54"
+    fill="none"
+    stroke="#172033"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="28"
+  />
+</svg>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HueFit Closet</title>
+    <meta
+      name="description"
+      content="A mobile-friendly outfit planner that turns your clothing photos into personalized outfit ideas."
+    />
+    <meta name="theme-color" content="#ef7a4f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="HueFit Closet" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/icon-192.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icons/icon-192.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-left"></div>
+    <div class="ambient ambient-right"></div>
+
+    <div class="page-shell">
+      <header class="hero panel">
+        <nav class="topbar">
+          <div>
+            <p class="eyebrow">Mobile Outfit Planner</p>
+            <h1>HueFit Closet</h1>
+          </div>
+          <div class="topbar-actions">
+            <button id="shuffle-theme" class="ghost-button" type="button">Switch palette</button>
+            <button id="focus-mode" class="ghost-button" type="button">Focus mode</button>
+          </div>
+        </nav>
+
+        <div class="hero-grid">
+          <section class="hero-copy">
+            <p class="intro">
+              Turn clothing photos into outfit ideas that feel polished, practical, and fast to
+              choose. Built to work well on iPhone screens, with filters for occasion, mood, and
+              overall dress level.
+            </p>
+
+            <div class="hero-stat-row">
+              <article class="stat-card">
+                <strong id="count-items">0</strong>
+                <span>pieces saved</span>
+              </article>
+              <article class="stat-card">
+                <strong id="count-looks">0</strong>
+                <span>looks ready</span>
+              </article>
+              <article class="stat-card">
+                <strong>iPhone</strong>
+                <span>camera-friendly upload</span>
+              </article>
+            </div>
+
+            <div class="hero-highlights">
+              <article>
+                <strong>Snap your closet</strong>
+                <span>Upload tops, shoes, accessories, and dresses directly from your phone.</span>
+              </article>
+              <article>
+                <strong>Filter with intent</strong>
+                <span>Tell the app if you need workwear, travel comfort, date-night polish, or a bold vibe.</span>
+              </article>
+              <article>
+                <strong>Customize the look</strong>
+                <span>Choose a color palette that is calm on the eyes or switch to a different visual style.</span>
+              </article>
+            </div>
+          </section>
+
+          <aside class="hero-preview">
+            <div class="preview-head">
+              <div>
+                <p class="preview-label">Current palette</p>
+                <h2 id="theme-name">Clementine light</h2>
+              </div>
+              <p class="preview-chip">Template layout</p>
+            </div>
+
+            <div class="preview-stack">
+              <div class="preview-piece preview-piece-large warm">Silk camp shirt</div>
+              <div class="preview-piece-row">
+                <div class="preview-piece cool">Tailored pants</div>
+                <div class="preview-piece neutral">Leather sneakers</div>
+              </div>
+              <div class="preview-piece accent">Gold hoops + structured bag</div>
+            </div>
+
+            <p class="preview-note">
+              The base template keeps an outfit organized into core pieces, comfort layers, and finishing accessories.
+            </p>
+          </aside>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="panel intake-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Step 1</p>
+              <h2>Capture your wardrobe</h2>
+            </div>
+            <p class="section-note">Each photo becomes a piece the generator can reuse in future outfits.</p>
+          </div>
+
+          <form id="item-form" class="item-form">
+            <label>
+              Item name
+              <input id="item-name" name="name" type="text" placeholder="Striped knit polo" required />
+            </label>
+
+            <div class="field-row">
+              <label>
+                Category
+                <select id="item-category" name="category" required>
+                  <option value="top">Top</option>
+                  <option value="bottom">Bottom</option>
+                  <option value="dress">Dress / One-piece</option>
+                  <option value="outerwear">Outerwear</option>
+                  <option value="shoes">Shoes</option>
+                  <option value="accessory">Accessory</option>
+                </select>
+              </label>
+
+              <label>
+                Main color
+                <select id="item-color" name="color">
+                  <option value="neutral">Neutral</option>
+                  <option value="warm">Warm</option>
+                  <option value="cool">Cool</option>
+                  <option value="soft">Soft</option>
+                  <option value="bold">Bold</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="field-row">
+              <label>
+                Style
+                <select id="item-style" name="style">
+                  <option value="classic">Classic</option>
+                  <option value="casual">Casual</option>
+                  <option value="elevated">Elevated</option>
+                  <option value="romantic">Romantic</option>
+                  <option value="street">Street</option>
+                  <option value="sporty">Sporty</option>
+                </select>
+              </label>
+
+              <label>
+                Season
+                <select id="item-season" name="season">
+                  <option value="all">All season</option>
+                  <option value="spring">Spring</option>
+                  <option value="summer">Summer</option>
+                  <option value="fall">Fall</option>
+                  <option value="winter">Winter</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="field-row">
+              <label>
+                Dress level
+                <select id="item-formality" name="formality">
+                  <option value="relaxed">Relaxed</option>
+                  <option value="smart">Smart casual</option>
+                  <option value="dressy">Dressy</option>
+                </select>
+              </label>
+
+              <label>
+                Texture
+                <select id="item-texture" name="texture">
+                  <option value="smooth">Smooth</option>
+                  <option value="structured">Structured</option>
+                  <option value="soft">Soft</option>
+                  <option value="statement">Statement</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="upload-field">
+              Add photo
+              <input id="item-image" name="image" type="file" accept="image/*" capture="environment" />
+              <span id="upload-hint" class="upload-hint">Choose a photo or snap one from your iPhone camera.</span>
+            </label>
+
+            <button class="primary-button" type="submit">Save to closet</button>
+          </form>
+        </section>
+
+        <section class="panel filter-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Step 2</p>
+              <h2>Set your outfit filters</h2>
+            </div>
+            <p class="section-note">Use the filters the way a user would when they need a quick recommendation.</p>
+          </div>
+
+          <div class="filter-grid">
+            <label>
+              Occasion
+              <select id="occasion">
+                <option value="casual">Casual day</option>
+                <option value="work">Work / school</option>
+                <option value="date">Date night</option>
+                <option value="event">Special event</option>
+                <option value="travel">Travel</option>
+              </select>
+            </label>
+
+            <label>
+              Mood
+              <select id="mood">
+                <option value="balanced">Balanced</option>
+                <option value="bold">Bold</option>
+                <option value="soft">Soft</option>
+                <option value="minimal">Minimal</option>
+                <option value="playful">Playful</option>
+              </select>
+            </label>
+
+            <label>
+              Weather
+              <select id="weather">
+                <option value="all">Any</option>
+                <option value="warm">Warm weather</option>
+                <option value="cool">Cool weather</option>
+              </select>
+            </label>
+
+            <label>
+              Dress code
+              <select id="dress-code">
+                <option value="relaxed">Relaxed</option>
+                <option value="smart">Smart casual</option>
+                <option value="dressy">Dressy</option>
+              </select>
+            </label>
+
+            <label>
+              Preferred palette
+              <select id="palette-preference">
+                <option value="mixed">Mixed</option>
+                <option value="neutral">Mostly neutral</option>
+                <option value="warm">Warm tones</option>
+                <option value="cool">Cool tones</option>
+                <option value="bold">Bold accent</option>
+              </select>
+            </label>
+
+            <label>
+              Highlight
+              <select id="priority-piece">
+                <option value="none">No priority</option>
+                <option value="top">Feature a top</option>
+                <option value="dress">Feature a dress</option>
+                <option value="accessory">Feature accessories</option>
+                <option value="shoes">Feature shoes</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="actions-row">
+            <button id="generate-outfits" class="primary-button" type="button">Generate looks</button>
+            <button id="reset-filters" class="ghost-button" type="button">Reset filters</button>
+          </div>
+        </section>
+
+        <section class="panel appearance-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Step 3</p>
+              <h2>Customize appearance</h2>
+            </div>
+            <p class="section-note">Keep the interface comfortable to look at while preserving the same outfit template.</p>
+          </div>
+
+          <div class="appearance-controls">
+            <label>
+              Theme family
+              <select id="theme-select"></select>
+            </label>
+
+            <label>
+              Card shape
+              <select id="radius-select">
+                <option value="soft">Soft rounded</option>
+                <option value="structured">Structured</option>
+                <option value="pill">Extra rounded</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="appearance-toggle">
+            <span>Reduce visual noise</span>
+            <button id="quiet-mode" class="toggle-button" type="button" aria-pressed="false">Off</button>
+          </div>
+        </section>
+
+        <section class="panel wardrobe-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Closet</p>
+              <h2>Your photographed pieces</h2>
+            </div>
+            <p class="section-note">The cards below represent the wardrobe database your users would build over time.</p>
+          </div>
+          <div id="wardrobe-grid" class="wardrobe-grid"></div>
+        </section>
+
+        <section class="panel suggestions-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Step 4</p>
+              <h2>Best-looking outfit possibilities</h2>
+            </div>
+            <p class="section-note">Each recommendation explains why the mix works, so the user does not have to guess.</p>
+          </div>
+          <div id="results" class="results-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="wardrobe-card-template">
+      <article class="wardrobe-card">
+        <div class="wardrobe-image-wrap">
+          <img class="wardrobe-image" alt="" />
+          <div class="wardrobe-image-fallback">No photo yet</div>
+        </div>
+        <div class="wardrobe-meta">
+          <h3></h3>
+          <p class="tag-row"></p>
+        </div>
+      </article>
+    </template>
+
+    <template id="result-card-template">
+      <article class="result-card">
+        <div class="result-header">
+          <div>
+            <p class="result-score"></p>
+            <h3 class="result-title"></h3>
+          </div>
+          <p class="result-badge"></p>
+        </div>
+        <div class="result-board"></div>
+        <div class="result-pieces"></div>
+        <p class="result-reason"></p>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
